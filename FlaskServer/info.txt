@@ -1,0 +1,6 @@
+--computer
+document.querySelector("#board-layout-sidebar > div > div.play-controller-moves-container > div.play-controller-scrollable > vertical-move-list")
+
+
+--multi
+document.querySelector("#move-list > vertical-move-list")
