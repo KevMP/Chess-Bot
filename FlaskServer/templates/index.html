@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Next Best Chess Move</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+      }
+      h1 {
+        text-align: center;
+      }
+      div {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 5px #ccc;
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 600px;
+      }
+      p {
+        margin: 0 0 10px;
+      }
+      ul {
+        margin: 0;
+        padding: 0 0 0 20px;
+        list-style: disc;
+      }
+      li {
+        margin: 0 0 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Chess Bot</h1>
+    <div>
+      <p id = "bestMove">The next best move is: e2e4</p>
+      <ul id = "eval">
+      </ul>
+    </div>
+
+    <script>
+      const bestMoveP = document.getElementById('bestMove')
+      setInterval(() => {
+        fetch('/getMove')
+          .then(response => response.json())
+          .then(data => {
+            // Do something with the data received from the server
+            bestMoveP.textContent = data['nextMove']
+            console.log(data['nextMove'])
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      }, 500);
+  
+
+
+    </script>
+  </body>
+
+</html>
